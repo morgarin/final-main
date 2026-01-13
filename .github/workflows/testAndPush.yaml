@@ -37,7 +37,9 @@ jobs:
   dockerhub-push:
     needs: test
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
+    # В ревью написали что нужно проверить работу двух джобов, как это сделать если
+    # test заваливается, а вторая джоба не начнется если он завален?
+    # if: startsWith(github.ref, 'refs/tags/v') я убрал зависимость второй от первой
 
     steps:
     - name: Checkout
